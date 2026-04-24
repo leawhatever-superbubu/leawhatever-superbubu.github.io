@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记录跟Code Buddy一起做的一件小事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 400;
+            color: #0ABAB5;
+            margin-top: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 0.3px;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #34495e;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+        p {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        strong {
+            color: #0ABAB5;
+            font-weight: 500;
+        }
+        ul {
+            list-style: none;
+            margin: 20px 0;
+            padding-left: 0;
+        }
+        li {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        li:before {
+            content: "·";
+            position: absolute;
+            left: 8px;
+            color: #0ABAB5;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 50px 0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 50px 24px;
+            }
+            h1 {
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+            h2 {
+                font-size: 18px;
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>记录跟Code Buddy一起做的一件小事</h1>
+        
+        <p>最近做了件小事,却让我真切感受到技术的温度——用Code Buddy帮朋友搭了个专属的家属病情记录AI网页,手机电脑都能添加到桌面,点一下打开就和用APP一样方便。比起之前做的所有工作提效工具,这次小项目,算得上我个人AI开发路上一个暖暖的里程碑。</p>
+
+        <h2>需求从哪来？一份实实在在的陪伴需求</h2>
+        
+        <p>朋友的家人需要长期调理身体,为了帮家人慢慢恢复,朋友做了很多准备：专门上课学护理知识,每天坚持记状态,会和AI沟通调整护理方法,陪诊后也会认真记下医生的建议。</p>
+        
+        <p>但时间久了麻烦就来了：所有内容散在三个独立文档里——上课笔记、AI建议、医生沟通各占一个,每天和豆包交流完,还要手动存有用建议,翻找管理特别不方便。</p>
+        
+        <p>朋友找我的时候需求很简单：<strong>能不能帮我整个统一入口,把所有内容归到一块儿？</strong></p>
+        
+        <p>就这一句话,我决定用Code Buddy搭一个满足记录+交互的专属工具。</p>
+
+        <h2>专属工具的小心思,每处都贴合需求</h2>
+        
+        <p>接到需求我就想,这个工具不仅要存内容,还要方便梳理思路,结合朋友之前的使用习惯,最终做出来的效果比我预想的还顺手：</p>
+
+        <h3>📚 分类归档,不用再乱找内容</h3>
+        
+        <p>工具背后直接关联飞书文档,我分了四个独立表格,刚好对应四类内容：</p>
+        
+        <ul>
+            <li>课程学习笔记</li>
+            <li>AI产出的优质建议</li>
+            <li>和医生的交流记录</li>
+            <li>每日状态更新</li>
+        </ul>
+        
+        <p>朋友只需要在网页里操作,内容自动分类存进飞书,再也不用来回切文档整理了。</p>
+
+        <h3>🤖 接入Kimi,跟着历史给适配反馈</h3>
+        
+        <p>朋友之前一直用豆包交流,这次我换成接入Kimi大模型——好处是Kimi能直接调用已有知识库,朋友写完新的日常记录,Kimi会结合之前所有的记录、笔记给反馈,不用每次重新说一遍背景。</p>
+        
+        <p>要是觉得这次建议不错,点一下就能直接存到「AI优质建议」模块,下次找特别方便。所有交互过程都会完整存在飞书文档里,不会丢任何有用信息。</p>
+
+        <h3>🔒 三重存储+独立密码,隐私放第一位</h3>
+        
+        <p>内容涉及家人隐私,安全这块我特别注意,最终做了<strong>三重存储</strong>设计：数据同时存在Supabase数据库、前端缓存和飞书文档,既保证工具内实时交互,又做好了完整历史备份,安全度拉满。</p>
+        
+        <p>整个工具完全适配移动端,不管手机还是电脑,都能直接把网页添加到桌面,点一下桌面图标就能打开,用起来和原生APP一样方便。打开就是对话框样式,不同标签按钮切换功能——记日常、传医嘱、和AI聊天,点一下就切换,操作一点不复杂。</p>
+        
+        <p>最后加了单独的登录密码,只有朋友本人能进,最大程度保护隐私。</p>
+
+        <h2>为什么说这是我的AI开发小里程碑？</h2>
+        
+        <p>做开发这么久,之前我做的全是和工作相关的提效工具,不是帮团队缩流程,就是帮自己提效率,本质都是围着产出转。</p>
+        
+        <p>但这次不一样,这是我第一次用Code Buddy做面向真实个人需求的公益小工具,不用对接KPI,不用应付复杂需求,就是帮身边朋友解决实实在在的麻烦,帮他更好地陪伴家人康复。</p>
+        
+        <p>做完最大的感受就是：<strong>用自己的技术帮身边人解决真问题,居然这么开心。</strong></p>
+        
+        <p>它不宏大也不复杂,就是个小小的专属工具,但对需要的人来说足够实用。对我来说,这就是近期最有意义的一件事,也确实配得上AI Coding路上这个暖暖的小小里程碑✨</p>
+
+        <hr>
+        
+        <p>其实咱们身边从来不缺这类个性化的小需求,AI时代,用Code Buddy动手搭一个专属工具,就能解决大问题——那些藏在细节里的需求,本来就值得被认真满足呀。</p>
+    </div>
+</body>
+</html>
